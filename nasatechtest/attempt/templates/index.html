@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Near Earth Objects</title>
+    <link rel="stylesheet" href="{% static 'nasatechtest/index.css' %}">
+    <link
+      href="http://fonts.cdnfonts.com/css/nike-combat-stencil"
+      rel="stylesheet"
+    />
+</head>
+
+<body class="body">
+    {% block content %}
+    <h1>Near Earth Objects</h1>
+    <!-- {{ element_count }} objects have passed near earth in the selected timeframe: -->
+    
+    <h2>
+        See all asteroids that passed near Earth during a specific timeframe.
+    </h2>
+    
+    <p>
+        Click on an asteroid's name to see its last five passages near Earth.
+        {% if message != False %}
+            {{ message }}
+        {% endif %}
+    </p>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+
+    <table class="asteroids">
+        <div class="list">
+            <tr class="content">
+                <th>NAME</th>
+                <th>SIZE</th>
+                <th>DISTANCE TO EARTH</th>
+                <th>NEXT PASSAGE</th>
+            </tr>
+            {% for asteroid in asteroids %}
+            <tr>
+                <td><a href="/asteroid/{{ asteroid.id }}">{{ asteroid.name }}</a></td>
+                <td>Between {{ asteroid.minSize }} and {{ asteroid.maxSize }} meters in diameter</td>
+                <td>{{ asteroid.distance }} km</td>
+                <td>{{ asteroid.nextPassage }}</td>
+            </tr>
+            {% endfor %}
+        </div>
+    </table>
+    {% endblock %}
+</body>
+
+</html>

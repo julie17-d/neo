@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Near Earth Objects</title>
+    <link href="http://fonts.cdnfonts.com/css/nike-combat-stencil" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'nasatechtest/index.css' %}">
+</head>
+
+<body>
+    <h1>ASTEROID {{ name }}</h1>
+    <div class="asteroid-passages">
+        <h2>Last passages next to Earth:</h2>
+        {% for passage in passages %}
+            <li>{{ passage }}</li>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

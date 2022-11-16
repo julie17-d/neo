@@ -12,16 +12,29 @@
 
 ### 3. Download dependencies
 
+Windows:
+
+`py -m pip install requests`
+
+
 Unix/MacOS:
 
 `python3 -m pip install requests`
 
 
+### 4. Install django
+
 Windows:
 
-`py -m pip install requests`
+`py -m pip install Django`
 
-### 4. Launch server
+
+Unix/MacOs:
+
+`python3 -m pip install Django`
+
+
+### 5. Launch server
 
 Windows:
 
@@ -32,4 +45,4 @@ Unix/MacOs:
 `python3 nasatechtest/manage.py runserver`
 
 
-### 5. Open a new browser window and type '127.0.0.1:8000' in the address bar
+### 6. Open a new browser window and type '127.0.0.1:8000' in the address bar
